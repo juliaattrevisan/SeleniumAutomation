@@ -84,7 +84,7 @@ public class SignInPage {
 		
 	}
 	
-	//function to get invalid messages
+	//function - to get invalid messages
 	public String getInvalidMessageText() {
 		notificationError = driver.findElement(notificationErrorSelector);
 		return notificationError.getText();
