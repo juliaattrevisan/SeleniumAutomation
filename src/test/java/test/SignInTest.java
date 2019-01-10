@@ -40,7 +40,7 @@ public class SignInTest {
 	
 	@Test
 	public void FooterCheck(){
-		
+		//
 		objSignIn.openUltimateQAPage();
 		ExpectedConditions.visibilityOf(objSignIn.findElement(objSignIn.footerNavBarSelector));
 		ExpectedConditions.visibilityOf(objSignIn.findElement(objSignIn.footerHomeLinkSelector));
