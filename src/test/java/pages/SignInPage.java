@@ -18,13 +18,25 @@ public class SignInPage {
 	
 	//wrapper
 	private WebElement usernameInput;
-	private ByIdOrName usernameSelector = new ByIdOrName("user_email");
+	public ByIdOrName usernameSelector = new ByIdOrName("user_email");
 	private WebElement passwordInput;
-	private ByIdOrName passwordSelector = new ByIdOrName("user_password");
-	private WebElement saveButton;
-	private ByIdOrName saveButtonSelector = new ByIdOrName("btn-signin");
+	public ByIdOrName passwordSelector = new ByIdOrName("user_password");
+	private WebElement signInButton;
+	public ByIdOrName signInButtonSelector = new ByIdOrName("btn-signin");
 	private WebElement notificationError;
 	private ByClassName notificationErrorSelector = new ByClassName("notifications-error__list-item");
+	private WebElement welcomeBack;
+	private ByClassName welcomeBackSelector = new ByClassName("section-title");
+	private WebElement signInLinkedinLink;
+	public ByLinkText signInLinkedinSelector = new ByLinkText("Sign in with LinkedIn");
+	private WebElement orSignInText;
+	public ByClassName orSignInTextSelector = new ByClassName("form__separator");
+	private WebElement checkBox;
+	public ByClassName checkBoxSelector = new ByClassName("checkbox");
+	private WebElement forgotPassword;
+	public ByLinkText forgotPasswordSelector = new ByLinkText("Forgot Password?");
+	private WebElement createNewAccount;
+	public ByLinkText createNewAccountSelector = new ByLinkText("Create a new account");
 	
 	//header
 	public ByClassName headerNavBarSelector = new ByClassName("header-nav__container");
@@ -46,12 +58,20 @@ public class SignInPage {
 	private WebElement footerCopyright;
 	public ByClassName footerCopyrightSelector = new ByClassName("footer-copyright");
 	
+	
 	public SignInPage() {
 		
 		//setting a path to chrome driver
 		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		
+	}
+	
+	//funtion to find an element
+	public WebElement findElement(By element) {
+		
+		return driver.findElement(element);
+			
 	}
 	
 	public void openUltimateQAPage() {
@@ -77,10 +97,10 @@ public class SignInPage {
 		
 	}
 
-	//function to click Save button
-	public void clickSave() {
-		saveButton = driver.findElement(saveButtonSelector);
-		saveButton.click();
+	//function to click Sing In button
+	public void clickSignInButton() {
+		signInButton = driver.findElement(signInButtonSelector);
+		signInButton.click();
 		
 	}
 	
@@ -91,21 +111,42 @@ public class SignInPage {
 		
 	}
 	
-	//function to check if an element is presented in the page
-	public void isWebElementPresented(By element) {
-	   //headerNavBar = driver.findElement(headerNavBarSelector);
-		//ExpectedConditions.visibilityOf(driver.findElement(headerNavBarSelector));
-		ExpectedConditions.visibilityOf(driver.findElement(element));
-			
+	
+	//function to get welcome text
+	public String getWelcomeText() {
+		welcomeBack = driver.findElement(welcomeBackSelector);
+		return welcomeBack.getText();
+		
 	}
 	
-	//function to get invalid messages
+	//function to "or sign in with" text
+	public String getOrSignInText() {
+		orSignInText = driver.findElement(orSignInTextSelector);
+		return orSignInText.getText();
+		
+	}
+	
+	//function to get copy right text
+	public String getCheckBoxText() {
+		checkBox = driver.findElement(checkBoxSelector);
+		return checkBox.getText();
+		
+	}
+	
+	//function to tick check box
+	public void tickCheckBox() {
+		checkBox = driver.findElement(checkBoxSelector);
+		checkBox.click();
+		
+	}
+	
+	//function to get copy right text
 	public String getCopyRightText() {
 		footerCopyright = driver.findElement(footerCopyrightSelector);
 		return footerCopyright.getText();
 		
 	}
 	
-	
+
 	
 }
