@@ -111,6 +111,18 @@ public class SignInPage {
 		
 	}
 	
+	//function to click QA logo at the header
+	public void clickQALogo() {
+		headerLogo = driver.findElement(headerNavBarSelector);
+		headerLogo.click();
+	}
+	
+	//function to click All Courses at the header
+		public void clickAllCourses() {
+			allCourses = driver.findElement(allCoursesSelector);
+			allCourses.click();
+		}
+	
 	
 	//function to get welcome text
 	public String getWelcomeText() {

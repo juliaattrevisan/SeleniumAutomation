@@ -65,5 +65,12 @@ public class SignInTest {
 		ExpectedConditions.visibilityOf(objSignIn.findElement(objSignIn.createNewAccountSelector));
 		
 	}
+	
+	@Test
+	public void RedirectToUltimatePageCheck() {
+		objSignIn.openUltimateQAPage();
+		objSignIn.clickQALogo();
+		
+	}
 
 }
